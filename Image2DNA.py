@@ -149,10 +149,14 @@ def process_directory(dir_path):
                 convert_dna_list_to_jpeg(file_path)
                 print("Processing the DNA sequence file wihtin {}...Done".format(file_path))
 
-# 判断路径是文件还是目录，并调用相应的处理函数
-if os.path.isfile(args.path):
-    convert_jpeg_to_dna_list(args.path)
-elif os.path.isdir(args.path):
-    process_directory(args.path)
-else:
-    print(f'{args.path} is not a file or directory')
+def main():
+    # 判断路径是文件还是目录，并调用相应的处理函数
+    if os.path.isfile(args.path):
+        convert_jpeg_to_dna_list(args.path)
+    elif os.path.isdir(args.path):
+        process_directory(args.path)
+    else:
+        print(f'{args.path} is not a file or directory')
+
+if __name__ == '__main__':
+    main()
